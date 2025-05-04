@@ -3,27 +3,28 @@
       "id": "202505001",
       "title": "如果你可以看到本訊息，你是測試人員",
       "time": "2025-05-04 10:00:00 ~ 2099-05-04 10:00:00",
-      "targetDevices": ["DEV--001-test"],
+      "targetDevices": ["DEV--001-test","DEV--002-test"],
       "public": true
     },
     {
       "id": "202505002",
       "title": "通知系統測試 請忽視本訊息  不用理會本訊息",
       "time": "2025-05-04T10:00:00 ~ 2025-05-05T12:00:00",
-      "targetDevices": ["public false"],
+      "targetDevices": ["everyone"],
       "public": false
     },
     {
       "id": "202505003",
       "title": "v2.3.web.3 版本更新 請確認使用版本為最新版",
       "time": "2025-05-04T10:00:00 ~ 2025-05-05T12:00:00",
-      "targetDevices": ["public false"],
+      "targetDevices": ["everyone"],
       "public": false
     },
     {
       "id": "202505004",
       "title": "請認明官方thead帳號 @luku_maker",
       "time": "2025-05-04T12:00:00 ~ 2025-05-05T12:00:00",
+      "targetDevices": ["everyone"],
       "public": true
     }
   ]

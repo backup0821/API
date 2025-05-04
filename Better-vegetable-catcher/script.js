@@ -1,5 +1,5 @@
 // 模擬數據庫
-let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+let notifications = [];
 
 // DOM 元素
 const notificationsList = document.getElementById('notificationsList');
@@ -11,7 +11,7 @@ const closeBtn = document.querySelector('.close');
 
 // 事件監聽器
 document.addEventListener('DOMContentLoaded', () => {
-    renderNotifications();
+    loadNotifications();
 });
 
 addNotificationBtn.addEventListener('click', () => {
@@ -35,6 +35,22 @@ notificationForm.addEventListener('submit', (e) => {
     e.preventDefault();
     saveNotification();
 });
+
+// 載入通知
+async function loadNotifications() {
+    try {
+        const response = await fetch('notfiy.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        notifications = await response.json();
+        renderNotifications();
+    } catch (error) {
+        console.error('載入資料時發生錯誤:', error);
+        notifications = [];
+        renderNotifications();
+    }
+}
 
 // 渲染通知列表
 function renderNotifications(notificationsToRender = notifications) {
@@ -97,7 +113,7 @@ function closeModal() {
 }
 
 // 儲存通知
-function saveNotification() {
+async function saveNotification() {
     const id = document.getElementById('notificationId').value;
     const title = document.getElementById('title').value;
     const content = document.getElementById('content').value;
@@ -127,9 +143,25 @@ function saveNotification() {
         notifications.push(notification);
     }
 
-    localStorage.setItem('notifications', JSON.stringify(notifications));
-    renderNotifications();
-    closeModal();
+    try {
+        const response = await fetch('notfiy.json', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(notifications, null, 2)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        renderNotifications();
+        closeModal();
+    } catch (error) {
+        console.error('儲存資料時發生錯誤:', error);
+        alert('儲存失敗，請稍後再試');
+    }
 }
 
 // 編輯通知
@@ -138,11 +170,28 @@ function editNotification(id) {
 }
 
 // 刪除通知
-function deleteNotification(id) {
+async function deleteNotification(id) {
     if (confirm('確定要刪除這個通知嗎？')) {
         notifications = notifications.filter(notification => notification.id !== id);
-        localStorage.setItem('notifications', JSON.stringify(notifications));
-        renderNotifications();
+        
+        try {
+            const response = await fetch('notfiy.json', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(notifications, null, 2)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            renderNotifications();
+        } catch (error) {
+            console.error('刪除資料時發生錯誤:', error);
+            alert('刪除失敗，請稍後再試');
+        }
     }
 }
 
