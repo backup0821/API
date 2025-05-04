@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>果菜市場通知系統</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-bell"></i> 果菜市場通知系統</h1>
+            <div class="header-controls">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="搜尋通知...">
+                </div>
+                <div class="filter-container">
+                    <select id="dateFilter">
+                        <option value="all">所有日期</option>
+                        <option value="today">今天</option>
+                        <option value="week">本週</option>
+                        <option value="month">本月</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-bell"></i>
+                    <span id="totalNotifications">0</span>
+                    <p>總通知數</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-day"></i>
+                    <span id="todayNotifications">0</span>
+                    <p>今日通知</p>
+                </div>
+            </div>
+
+            <div class="notifications-container" id="notificationsList">
+                <!-- 通知內容將在這裡動態載入 -->
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- 分頁按鈕將在這裡動態載入 -->
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 果菜市場通知系統 | 最後更新時間: <span id="lastUpdateTime"></span></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
