@@ -21,46 +21,152 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+.search-container {
     margin-bottom: 20px;
 }
 
-header h1 {
-    margin-bottom: 20px;
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.notifications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.notification-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.notification-card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
     display: flex;
     align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
     gap: 10px;
+    margin-top: 20px;
+}
+
+.notification-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.status-public {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-private {
+    background-color: #f44336;
+    color: white;
 }
 
 .header-controls {
     display: flex;
     gap: 20px;
     margin-top: 20px;
-}
-
-.search-container {
-    flex: 1;
-    position: relative;
-}
-
-.search-container i {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 12px 12px 12px 35px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    outline: none;
 }
 
 .filter-container select {
@@ -98,25 +204,6 @@ header h1 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 5px;
-}
-
-.notifications-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.notification-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-.notification-card:hover {
-    transform: translateY(-5px);
 }
 
 .notification-title {
@@ -190,116 +277,100 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
     .header-controls {
         flex-direction: column;
+        gap: 10px;
     }
-    
+
     .notifications-container {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
-    
+
     .stats-container {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .notification-card {
+        padding: 15px;
+    }
+
+    .notification-title {
+        font-size: 1.1rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .notification-title {
+        font-size: 1rem;
+    }
+
+    .notification-footer {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .modal-content {
+        margin: 20% auto;
     }
 }
 
 /* 新增按鈕樣式 */
-.btn-primary {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .btn-primary:hover {
     background-color: #45a049;
 }
 
-.btn-secondary {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
 .btn-secondary:hover {
     background-color: #da190b;
-}
-
-/* 模態視窗樣式 */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: black;
-}
-
-/* 表單樣式 */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.form-group textarea {
-    height: 100px;
-    resize: vertical;
-}
-
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
 }
 
 /* 通知卡片編輯按鈕 */
