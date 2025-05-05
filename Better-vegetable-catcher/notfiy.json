@@ -2,7 +2,7 @@
     {
       "id": "202505001",
       "title": "如果你可以看到本訊息，你是測試人員",
-      "messenge": "測試訊息",
+      "messenge": "如您不是測試人員，請立即向官方回報",
       "time": "2025-05-04 10:00:00 ~ 2099-05-04 10:00:00",
       "targetDevices": ["DEV--001-test","DEV--002-test"],
       "public": true
@@ -25,9 +25,17 @@
     },
     {
       "id": "202505004",
-      "title": "請認明官方thead帳號 @luku_maker",
+      "title": "請認明官方threads帳號 @luku_maker",
       "messenge": "避免查看盜版帳號!",
       "time": "2025-05-04T12:00:00 ~ 2025-05-05T12:00:00",
+      "targetDevices": ["everyone"],
+      "public": true
+    },
+    {
+      "id": "202505005",
+      "title": "v2.4.web.0 更新",
+      "messenge": "不是最新版請聯絡IG:@luku_maker或Gmail: makerbackup0821@gmail.com 謝謝",
+      "time": "2025-05-04T12:00:00 ~ 2025-05-06T12:00:00",
       "targetDevices": ["everyone"],
       "public": true
     },
