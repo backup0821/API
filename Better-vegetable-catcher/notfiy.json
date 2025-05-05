@@ -30,5 +30,13 @@
       "time": "2025-05-04T12:00:00 ~ 2025-05-05T12:00:00",
       "targetDevices": ["everyone"],
       "public": true
+    },
+    {
+      "id": "202505005",
+      "title": "授權條款更新 請注意自身權利",
+      "messenge": "授權條款改為CC BY-NC 4.0 ， 頁面最下方有 '授權與開源說明' 請查看",
+      "time": "2025-05-05T00:00:00 ~ 2025-05-07T00:00:00",
+      "targetDevices": ["everyone"],
+      "public": true
     }
   ]
