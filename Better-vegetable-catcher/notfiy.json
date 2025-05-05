@@ -40,9 +40,17 @@
       "public": true
     },
     {
-      "id": "202505005",
+      "id": "202505006",
       "title": "授權條款更新 請注意自身權利",
       "messenge": "授權條款改為CC BY-NC 4.0 ， 頁面最下方有 '授權與開源說明' 請查看",
+      "time": "2025-05-05T00:00:00 ~ 2025-05-07T00:00:00",
+      "targetDevices": ["everyone"],
+      "public": true
+    },
+    {
+      "id": "202505007",
+      "title": "備用網站搭建成功",
+      "messenge": "請注意，備用網站網址為 https://better-vegetable-catcher.web.app/，正常使用請選擇普通網址，不隨意選用備用網址 鹿中創客關心您",
       "time": "2025-05-05T00:00:00 ~ 2025-05-07T00:00:00",
       "targetDevices": ["everyone"],
       "public": true
