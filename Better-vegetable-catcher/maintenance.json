@@ -3,7 +3,7 @@
         "title": "系統維護通知",
         "isActive": true,
         "startTime": "2024-05-20T00:00:00",
-        "endTime": "2024-05-20T23:59:59",
+        "endTime": "2024-05-21T23:59:59",
         "severity": "high",
         "description": "系統維護通知測試 敬請見諒。",
         "contact": {
