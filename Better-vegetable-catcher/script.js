@@ -1,5 +1,6 @@
 // 模擬數據庫
 let notifications = [];
+let maintenanceInfo = null;
 
 // DOM 元素
 const notificationsList = document.getElementById('notificationsList');
@@ -10,8 +11,11 @@ const addNotificationBtn = document.getElementById('addNotificationBtn');
 const closeBtn = document.querySelector('.close');
 
 // 事件監聽器
-document.addEventListener('DOMContentLoaded', () => {
-    loadNotifications();
+document.addEventListener('DOMContentLoaded', async () => {
+    await checkMaintenance();
+    if (!maintenanceInfo) {
+        loadNotifications();
+    }
 });
 
 addNotificationBtn.addEventListener('click', () => {
@@ -36,10 +40,53 @@ notificationForm.addEventListener('submit', (e) => {
     saveNotification();
 });
 
+// 檢查維護狀態
+async function checkMaintenance() {
+    try {
+        const response = await fetch('maintenance.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        maintenanceInfo = data.maintenanceInfo;
+        
+        if (maintenanceInfo && maintenanceInfo.isActive) {
+            const now = new Date();
+            const startTime = new Date(maintenanceInfo.startTime);
+            const endTime = new Date(maintenanceInfo.endTime);
+            
+            if (now >= startTime && now <= endTime) {
+                showMaintenanceMessage();
+                return true;
+            }
+        }
+        return false;
+    } catch (error) {
+        console.error('檢查維護狀態時發生錯誤:', error);
+        return false;
+    }
+}
+
+// 顯示維護訊息
+function showMaintenanceMessage() {
+    const container = document.querySelector('.container');
+    container.innerHTML = `
+        <div class="maintenance-message">
+            <h1>${maintenanceInfo.title}</h1>
+            <p>${maintenanceInfo.description}</p>
+            <p><strong>影響程度：</strong>${maintenanceInfo.severity === 'high' ? '高' : '低'}</p>
+            <p><strong>開始時間：</strong>${formatDateTime(maintenanceInfo.startTime)}</p>
+            <p><strong>結束時間：</strong>${formatDateTime(maintenanceInfo.endTime)}</p>
+            <p><strong>聯絡方式：</strong>${maintenanceInfo.contact.email}</p>
+            ${maintenanceInfo.stopService ? '<p class="warning">系統將完全停止服務</p>' : ''}
+        </div>
+    `;
+}
+
 // 載入通知
 async function loadNotifications() {
     try {
-        const response = await fetch('notfiy.json');
+        const response = await fetch('notify.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -61,7 +108,7 @@ function renderNotifications(notificationsToRender = notifications) {
         card.className = 'notification-card';
         card.innerHTML = `
             <h3>${notification.title}</h3>
-            <p>${notification.content}</p>
+            <p>${notification.message}</p>
             <p><strong>開始時間：</strong>${formatDateTime(notification.startTime)}</p>
             <p><strong>結束時間：</strong>${formatDateTime(notification.endTime)}</p>
             <span class="notification-status ${notification.public ? 'status-public' : 'status-private'}">
@@ -91,11 +138,11 @@ function openModal(notificationId = null) {
         if (notification) {
             document.getElementById('notificationId').value = notification.id;
             document.getElementById('title').value = notification.title;
-            document.getElementById('content').value = notification.content;
+            document.getElementById('content').value = notification.message;
             document.getElementById('startTime').value = notification.startTime;
             document.getElementById('endTime').value = notification.endTime;
             document.getElementById('public').value = notification.public;
-            document.getElementById('targetDevices').value = notification.targetDevices;
+            document.getElementById('targetDevices').value = notification.targetDevices.join(',');
         }
     } else {
         modalTitle.textContent = '新增通知';
@@ -125,7 +172,7 @@ async function saveNotification() {
     const notification = {
         id: id || generateId(),
         title,
-        content,
+        message: content,
         startTime,
         endTime,
         public,
@@ -144,7 +191,7 @@ async function saveNotification() {
     }
 
     try {
-        const response = await fetch('notfiy.json', {
+        const response = await fetch('notify.json', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -175,7 +222,7 @@ async function deleteNotification(id) {
         notifications = notifications.filter(notification => notification.id !== id);
         
         try {
-            const response = await fetch('notfiy.json', {
+            const response = await fetch('notify.json', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

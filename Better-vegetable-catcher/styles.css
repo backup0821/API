@@ -404,4 +404,39 @@ footer {
 
 .delete-btn:hover {
     background-color: #da190b;
+}
+
+.maintenance-message {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.maintenance-message h1 {
+    color: #e74c3c;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.maintenance-message p {
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.maintenance-message strong {
+    color: #2c3e50;
+}
+
+.maintenance-message .warning {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fde8e8;
+    border-radius: 4px;
 } 
