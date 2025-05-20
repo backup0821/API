@@ -2,10 +2,10 @@
     "maintenanceInfo": {
         "title": "系統維護通知",
         "isActive": true,
-        "startTime": "2024-05-08T00:00:00",
-        "endTime": "2024-05-09T23:59:59",
+        "startTime": "2024-05-20T00:00:00",
+        "endTime": "2024-05-20T23:59:59",
         "severity": "high",
-        "description": "系統將進行例行性維護與更新，期間所有服務將暫停使用。",
+        "description": "系統維護通知測試 敬請見諒。",
         "contact": {
             "email": "makerbackup0821@gmail.com"
         },
