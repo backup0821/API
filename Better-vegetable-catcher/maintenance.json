@@ -4,7 +4,7 @@
         "isActive": true,
         "startTime": "2024-05-20T00:00:00",
         "endTime": "2024-05-21T23:59:59",
-        "severity": "high",
+        "severity": "Low",
         "description": "系統維護通知測試 敬請見諒。",
         "contact": {
             "email": "makerbackup0821@gmail.com"
