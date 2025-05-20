@@ -1,11 +1,11 @@
 {
     "maintenanceInfo": {
-        "title": "系統維護通知",
+        "title": "TV系統維護公告",
         "isActive": true,
-        "startTime": "2024-05-20T00:00:00",
-        "endTime": "2024-05-21T23:59:59",
+        "startTime": "2024-05-21T00:00:00",
+        "endTime": "2024-05-25T23:59:59",
         "severity": "High",
-        "description": "系統維護通知測試 敬請見諒。",
+        "description": "TV模式裝置驗證系統api異常查，屆時不開放電視系統請求驗證。",
         "contact": {
             "email": "makerbackup0821@gmail.com"
         },
