@@ -70,5 +70,14 @@
       "endTime": "2025-05-11T00:00:00",
       "targetDevices": ["drvice-Taipai01"],
       "public": true
+    },
+    {
+      "id": "202505009",
+      "title": "通知系統維護完成",
+      "message": "通知系統已經維護完成，這是測試通知",
+      "startTime": "2025-05-020T00:00:00",
+      "endTime": "2025-05-22T00:00:00",
+      "targetDevices": ["everyone"],
+      "public": true
     }
 ]
