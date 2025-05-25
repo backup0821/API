@@ -6,7 +6,7 @@
       "startTime": "2025-05-04T10:00:00",
       "endTime": "2099-05-04T10:00:00",
       "targetDevices": ["DEV--001-test", "DEV--002-test"],
-      "public": true
+      "public": false
     },
     {
       "id": "202505002",
@@ -73,10 +73,10 @@
     },
     {
       "id": "202505009",
-      "title": "通知系統維護完成",
-      "message": "通知系統已經維護完成，這是測試通知",
-      "startTime": "2025-05-020T00:00:00",
-      "endTime": "2025-05-22T00:00:00",
+      "title": "維護公告",
+      "message": "TV系統維護延期，目前沒有預計修復日期",
+      "startTime": "2025-05-025T00:00:00",
+      "endTime": "2025-05-30T00:00:00",
       "targetDevices": ["everyone"],
       "public": true
     }
