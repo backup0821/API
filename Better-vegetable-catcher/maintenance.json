@@ -9,6 +9,6 @@
         "contact": {
             "email": "makerbackup0821@gmail.com"
         },
-        "stopService": true
+        "stopService": false
     }
 } 
