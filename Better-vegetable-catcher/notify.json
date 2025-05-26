@@ -4,7 +4,7 @@
       "title": "如果你可以看到本訊息，你是測試人員",
       "message": "如您不是測試人員，請立即向官方回報",
       "startTime": "2025-05-04T10:00:00",
-      "endTime": "2099-05-04T10:00:00",
+      "endTime": "2025-05-04T10:00:00",
       "targetDevices": ["DEV--001-test", "DEV--002-test"],
       "public": false
     },
