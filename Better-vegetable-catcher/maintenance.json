@@ -1,14 +1,14 @@
 {
     "maintenanceInfo": {
-        "title": "系統維護公告",
+        "title": "維護公告",
         "isActive": true,
-        "startTime": "2025-05-25T00:00:00",
-        "endTime": "2025-05-28T23:59:59",
+        "startTime": "2025-05-27T00:00:00",
+        "endTime": "2025-05-31T23:59:59",
         "severity": "High",
-        "description": "通知系統異常，正在修復中；TV驗證系統尚未修復完成，修復中。",
+        "description": "系統無法抓取api資料，導致系統無法使用，正在查明原因，我們會盡快修復。",
         "contact": {
             "email": "makerbackup0821@gmail.com"
         },
-        "stopService": false
+        "stopService": true
     }
 } 
