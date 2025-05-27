@@ -78,6 +78,15 @@
       "startTime": "2025-05-025T00:00:00",
       "endTime": "2025-05-30T00:00:00",
       "targetDevices": ["everyone"],
+      "public": false
+    },
+        {
+      "id": "202505010",
+      "title": "維護公告",
+      "message": "系統無法抓取api資料，導致系統無法使用，正在查明原因，我們會盡快修復。",
+      "startTime": "2025-05-027T00:00:00",
+      "endTime": "2025-05-30T00:00:00",
+      "targetDevices": ["everyone"],
       "public": true
     }
 ]
