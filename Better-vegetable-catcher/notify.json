@@ -80,7 +80,7 @@
       "targetDevices": ["everyone"],
       "public": false
     },
-        {
+    {
       "id": "202505010",
       "title": "維護公告",
       "message": "系統無法抓取api資料，導致系統無法使用，正在查明原因，我們會盡快修復。",
