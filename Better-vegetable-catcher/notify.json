@@ -6,7 +6,7 @@
       "startTime": "2025-05-04T10:00:00",
       "endTime": "2025-05-04T10:00:00",
       "targetDevices": ["DEV--001-test", "DEV--002-test"],
-      "public": false
+      "public": true
     },
     {
       "id": "202505002",
