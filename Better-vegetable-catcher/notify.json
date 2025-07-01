@@ -88,5 +88,14 @@
       "endTime": "2025-05-30T00:00:00",
       "targetDevices": ["everyone"],
       "public": true
+    },
+    {
+      "id": "202505011",
+      "title": "更新公告",
+      "message": "系統完成UI3.0更新 等待你的體驗。",
+      "startTime": "2025-06-307T00:00:00",
+      "endTime": "2025-07-30T00:00:00",
+      "targetDevices": ["everyone"],
+      "public": true
     }
 ]
