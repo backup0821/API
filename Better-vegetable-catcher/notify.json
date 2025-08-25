@@ -96,6 +96,6 @@
       "startTime": "2025-06-307T00:00:00",
       "endTime": "2025-07-30T00:00:00",
       "targetDevices": ["everyone"],
-      "public": true
+      "public": false
     }
 ]
